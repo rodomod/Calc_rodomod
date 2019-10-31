@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
-* [Calc_rodomod](Calc_rodomod.java)
-* [rodomod](rodomod.PNG)
+* [Introduction](Readme.md)
+* [calc](Calc.java)
+* [calc](calc.png)
 * [LICENSE](LICENSE.md)
