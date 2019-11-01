@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 public class Calc {
     JPanel winContent,p1;
     JTextField display;
-    JButton b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bPtn,bEquals,bSum,bSub,bMul,bDiv,bOps,bBack,bSqrt,bPow;
+    JButton b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bPtn,bEquals,bSum,bSub,bMul,bDiv,bOps,bBack,bse,bSqrt,bPow;
     
 Calc(){
         winContent = new JPanel();
@@ -29,13 +29,13 @@ Calc(){
         b8=new JButton("8");
 		b9=new JButton("9");
 		bPtn=new JButton(".");
-		bEquals=new JButton("=");
-        bSum=new JButton("+");
+		bSum=new JButton("+");
 		bSub=new JButton("-");
 		bMul=new JButton("*");
 		bDiv=new JButton("/");
         bOps=new JButton("-/+");
 		bBack=new JButton("C");
+		bse=new JButton("CE");
 		bSqrt=new JButton("sqrt");
 		bPow=new JButton("pow^3");
         p1=new JPanel();
@@ -44,9 +44,13 @@ Calc(){
         
         p1.add(b0);p1.add(b1);p1.add(b2);p1.add(b3);p1.add(b4);p1.add(b5);
         p1.add(b6);p1.add(b7);p1.add(b8);p1.add(b9);
-        p1.add(bPtn);p1.add(bEquals);p1.add(bSum);p1.add(bSub);p1.add(bMul);
-        p1.add(bDiv);p1.add(bOps);p1.add(bBack);p1.add(bSqrt);p1.add(bPow);
+        p1.add(bPtn);p1.add(bSum);p1.add(bSub);p1.add(bMul);
+        p1.add(bDiv);p1.add(bOps);p1.add(bBack);p1.add(bse);p1.add(bSqrt);p1.add(bPow);
         winContent.add("Center",p1);
+        
+        bEquals=new JButton("=");
+        winContent.add("South",bEquals);
+        
         JFrame frame=new JFrame("Calc_ENG");
         frame.setContentPane(winContent);
         frame.pack();
@@ -56,7 +60,7 @@ Calc(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         CalcEngine calcen=new CalcEngine(this);
-        bPow.addActionListener(calcen);bSqrt.addActionListener(calcen);
+        bPow.addActionListener(calcen);bSqrt.addActionListener(calcen);bse.addActionListener(calcen);
         bBack.addActionListener(calcen);bOps.addActionListener(calcen);
         bEquals.addActionListener(calcen);bSum.addActionListener(calcen);
         bSub.addActionListener(calcen);bMul.addActionListener(calcen);
@@ -102,6 +106,9 @@ else if(src==parent.bBack){
       String temp=parent.display.getText();
       parent.display.setText(temp.substring(0,temp.length()-1));
                       }
+else if(src==parent.bse){
+	parent.display.setText("");
+                      }
 else if(src==parent.bSqrt){
       double fm=Double.parseDouble(parent.display.getText());
       double sm=Double.parseDouble(parent.display.getText());
@@ -118,6 +125,7 @@ else {String  clickedButtonLabel=clickedButton.getText();
             }
 
 }	
+@SuppressWarnings("unused")
 public static void main(String[] args) {
       Calc calc = new Calc();
     }
