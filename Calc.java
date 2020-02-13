@@ -154,6 +154,7 @@ else {String  iL=ib.getText();
 }	
 @SuppressWarnings("unused")
 public static void main(String[] args) {
-      Calc calc = new Calc();
+    JFrame.setDefaultLookAndFeelDecorated(true);
+       new Calc();
         }
  }
